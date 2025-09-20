@@ -11,11 +11,14 @@ interface GameState {
 
   introDone: boolean;
 
+  gameRulesDone: boolean;
+
   // Actions
   toggleAudio: () => void;
   toggleGameStarted: () => void;
   setPlayerId: (playerId: string) => void;
   setIntroDone: (introDone: boolean) => void;
+  setGameRulesDone: (gameRulesDone: boolean) => void;
 }
 
 export const useGameStore = create<GameState>((set) => ({
@@ -24,7 +27,7 @@ export const useGameStore = create<GameState>((set) => ({
   gameStarted: false,
   playerId: "",
   introDone: false,
-
+  gameRulesDone: false,
   // Actions
   toggleAudio: () =>
     set((state) => ({ ...state, isAudioEnabled: !state.isAudioEnabled })),
@@ -33,4 +36,6 @@ export const useGameStore = create<GameState>((set) => ({
   setPlayerId: (playerId: string) => set((state) => ({ ...state, playerId })),
   setIntroDone: (introDone: boolean) =>
     set((state) => ({ ...state, introDone })),
+  setGameRulesDone: (gameRulesDone: boolean) =>
+    set((state) => ({ ...state, gameRulesDone })),
 }));

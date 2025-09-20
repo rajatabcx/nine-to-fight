@@ -3,12 +3,12 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { motion } from "motion/react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 import { introData } from "@/lib/data";
 import { useGameStore } from "@/lib/gameStore";
-import { TypingAnimation } from "./magicui/typing-animation";
-import { Button } from "./ui/button";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { TypingAnimation } from "@/components/magicui/typing-animation";
+import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 export default function Intro() {
@@ -75,6 +75,7 @@ export default function Intro() {
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <Image
+            priority
             src={currentCharacter.image}
             alt={currentCharacter.name}
             className={cn(
