@@ -1,0 +1,151 @@
+export const introData: {
+  name: string;
+  introText: string[];
+  entryFrom: "left" | "right";
+  designation: string;
+  slideType: "intro";
+  image: string;
+}[] = [
+  {
+    name: "You",
+    designation: "Software Engineer",
+    entryFrom: "left",
+    introText: [
+      "Hi there! Welcome, I'm… well, you.",
+      "Just landed this first big job with a tiny student loan riding shotgun.",
+      "I'm pumped, love memes, comics, and have absolutely no clue how ruthless corporate life can be (lucky, naive me!).",
+      "But hey, since I *am* you, we're in this together.",
+      "Without further ado, let's dive in — today's your first day, and the very first order of business is… onboarding.",
+    ],
+    slideType: "intro",
+    image: "/characters/protagonist.png",
+  },
+  {
+    name: "Lachlan Wicks",
+    designation: "Engineering Manager",
+    entryFrom: "right",
+    introText: [
+      "G'day, folks! I'm Lachlan, your EM and resident digital nomad — dialing in from a beach café in Goa, latte in one hand, backlog in the other.",
+      "My mantra? Empower teams with autonomy and zero micromanagement.",
+      "Welcome aboard — we're agile, but mostly in circles.",
+    ],
+    slideType: "intro",
+    image: "/characters/engineer-manager.png",
+  },
+  {
+    name: "Joshua Shima",
+    designation: "UI/UX Designer",
+    entryFrom: "left",
+    introText: [
+      "Hi sweetie! I'm Joshua, your design lead.",
+      "I just love collaborating — it's like therapy, except I get to critique all your choices.",
+      "Don't worry if my Figma files look complicated, they only have 120 layers per button.",
+      "You'll get used to it! And honestly, if developers can implement my designs without crying, I know I haven't pushed creativity hard enough.",
+      "We're going to be *such* good friends — especially when I politely ignore your feedback.",
+    ],
+    slideType: "intro",
+    image: "/characters/designer.png",
+  },
+  {
+    name: "Ashby Haloid",
+    designation: "Senior Software Engineer",
+    entryFrom: "right",
+    introText: [
+      "Hey champ! I'm Ashby, your go-to senior.",
+      "Just pulled a 16-hour shift yesterday — but who's counting when you love the grind, right?",
+      "The company basically feels like family… well, my actual family might disagree, but anniversaries are easy to celebrate over Zoom.",
+      "I'll be your mentor in showing how true dedication means fixing semicolon bugs at 3 AM and proudly logging 6 days of work after everyone else clocked out.",
+      "Welcome aboard!",
+    ],
+    slideType: "intro",
+    image: "/characters/senior-engineer.png",
+  },
+  {
+    name: "Helixes Oak",
+    designation: "Junior Software Engineer",
+    entryFrom: "left",
+    introText: [
+      "Hey! I'm Helixes, junior dev here.",
+      "I'm super pumped about all the cool stuff we're building — honestly, I think we should totally migrate this codebase to Rust or maybe Elixir… or hey, what about Go?",
+      "Anyway, I'll figure it out eventually.",
+      "I mostly keep to myself, binge anime after hours, and try not to slow anyone down.",
+      "But trust me, I'm always smiling — even when the sprint board isn't.",
+    ],
+    slideType: "intro",
+    image: "/characters/junior-engineer.png",
+  },
+  {
+    name: "Rajan Phumkabe",
+    designation: "Technical Program Manager",
+    entryFrom: "right",
+    introText: [
+      "Hey man, welcome aboard! I'm Rajan.",
+      "Honestly, this place is pretty chill — the founders said we'll totally launch by next month, so I already told my friends we'll be celebrating soon.",
+      "Deadlines, delays… whatever, it all works out somehow, right?",
+      "I just go with the flow.",
+      "You'll see, it's all good vibes here.",
+    ],
+    slideType: "intro",
+    image: "/characters/technical-program-manager.png",
+  },
+  {
+    name: "Hiram Rotty",
+    designation: "Product Manager",
+    entryFrom: "left",
+    introText: [
+      "Hey, Im Hiram — the guy with too many ideas and not enough people listening.",
+      "I'm usually the calm one in the room, but don't mistake that for not caring.",
+      "Late-night calls? I'm your best bet.",
+      "I'll brainstorm, strategize, and even throw in a killer workaround.",
+      "Sure, half my suggestions get ignored, but that's cool — I've got my network, and honestly, I don't stress too much.",
+      "Let's just say, if there's a roadblock, I probably know someone who can bulldoze it. 📱",
+    ],
+    slideType: "intro",
+    image: "/characters/product-manager.png",
+  },
+  {
+    name: "Abhiuday Rai",
+    designation: "Software Engineer",
+    entryFrom: "right",
+    introText: [
+      "Hi, Im Abhiuday — your dependable mid-level engineer.",
+      "I keep my head down, code clean, and somehow still end up in the crossfire of company politics.",
+      "I'm the guy people turn to in crunch time — debugging at midnight, fixing others' messes, or pulling the team out of a production fire.",
+      "Soft-spoken, steady, and reliable, but yeah… those dark circles?",
+      "They're my badges of honor.",
+      "I don't chase credit, I just get it done.",
+    ],
+    slideType: "intro",
+    image: "/characters/software-engineer.png",
+  },
+  {
+    name: "Alisha Washrag",
+    designation: "CEO & CTO",
+    entryFrom: "left",
+    introText: [
+      "Ah, welcome, welcome! I'm Alisha — ex-Google, back when Google actually meant something.",
+      "You know, in the 90s we used to code with just notepad and sheer willpower, none of this fancy framework nonsense.",
+      "I built my career on grit, hustle and CFML, making sure my team always stretched beyond their roles.",
+      "Around here, titles don't matter — everyone does everything, and I expect perfection from day one.",
+      "Trust me, if you just follow my lead, you'll go far.",
+      "After all, I didn't become who I am by listening to excuses.",
+    ],
+    slideType: "intro",
+    image: "/characters/founder-1.png",
+  },
+  {
+    name: "Akihito Larson",
+    designation: "COO & CPO",
+    entryFrom: "right",
+    introText: [
+      "Hiyaaa! I'm Akihito, your super-chill co-founder.",
+      "I'm in my 'go-with-the-flow' era.",
+      "Honestly, I don't stress much — I've got an amazing team for that!",
+      "Like, I once got so overwhelmed handling *three* customer calls in a day that I needed someone to cover the rest.",
+      "I usually spend my mornings sorting my inbox… well, I mean, having someone else sort my inbox for me.",
+      "Don't worry though — I'm always around for the fun stuff, like team selfies and sending emojis in Slack! 💖",
+    ],
+    slideType: "intro",
+    image: "/characters/founder-2.png",
+  },
+];
