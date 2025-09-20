@@ -40,9 +40,9 @@ export default function GameRule() {
         <div className="space-y-2">
           <h2 className="text-lg font-bold">The Endgame</h2>
           <p className="text-xs">
-            Your final stats determine one of many endings. There's no "winning"
-            - only different ways to survive or break. Each ending reflects real
-            workplace horror.
+            Your final stats determine one of many endings. There&apos;s no
+            &quot;winning&quot; - only different ways to survive or break. Each
+            ending reflects real workplace horror.
           </p>
         </div>
         <div className="flex justify-end">
