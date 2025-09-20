@@ -5,7 +5,7 @@ import Image from "next/image";
 import { motion } from "motion/react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-import { introData } from "@/lib/data";
+import { introData } from "@/lib/introData";
 import { useGameStore } from "@/lib/gameStore";
 import { TypingAnimation } from "@/components/magicui/typing-animation";
 import { Button } from "@/components/ui/button";

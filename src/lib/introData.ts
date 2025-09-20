@@ -11,7 +11,7 @@ export const introData: {
     designation: "Software Engineer",
     entryFrom: "left",
     introText: [
-      "Hi there! Welcome, I'm… well, you.",
+      "Hi there! Welcome, I'm… well, you. My name is Rajat.",
       "Just landed this first big job with a tiny student loan riding shotgun.",
       "I'm pumped, love memes, comics, and have absolutely no clue how ruthless corporate life can be (lucky, naive me!).",
       "But hey, since I *am* you, we're in this together.",
