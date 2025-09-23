@@ -1,25 +1,27 @@
 import React, { useState } from "react";
+import { ChevronRight } from "lucide-react";
+
 import { gameData } from "@/lib/gameData";
 import { Button } from "@/components/ui/button";
-import { ChevronRight } from "lucide-react";
-import { useGameStore } from "@/lib/gameStore";
+import { useGameStats } from "@/lib/gameStats";
+import { TypingAnimation } from "./magicui/typing-animation";
+import { cn } from "@/lib/utils";
 
 export default function Game() {
-  const [currentQuestionId, setCurrentQuestionId] = useState("intro_chat");
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
   const [showMessage, setShowMessage] = useState(false);
   const [message, setMessage] = useState("");
-  const [gameStats, setGameStats] = useGameStore((state) => [
-    {
-      sanity: state.sanity,
-      money: state.money,
-      performance: state.performance,
-    },
-    state.setgameStats,
-  ]);
+  const {
+    sanity,
+    money,
+    performance,
+    questionId,
+    setGameStats,
+    setQuestionId,
+  } = useGameStats();
 
   // Find current question data
-  const currentQuestion = gameData.find((q) => q.id === currentQuestionId);
+  const currentQuestion = gameData.find((q) => q.id === questionId)!;
 
   const handleOptionSelect = (choiceId: string) => {
     if (selectedOption || !currentQuestion) return;
@@ -31,17 +33,16 @@ export default function Game() {
 
     // Update stats
     setGameStats({
-      sanity: gameStats.sanity + (choice.consequences.sanity ?? 0),
-      money: gameStats.money + (choice.consequences.money ?? 0),
-      performance:
-        gameStats.performance + (choice.consequences.performance ?? 0),
+      sanity: sanity + (choice.consequences.sanity ?? 0),
+      money: money + (choice.consequences.money ?? 0),
+      performance: performance + (choice.consequences.performance ?? 0),
     });
 
     // Show message after a delay
     setTimeout(() => {
       setMessage(choice.consequences.message);
       setShowMessage(true);
-      setCurrentQuestionId(choice.consequences.nextScenarioId);
+      setQuestionId(choice.consequences.nextScenarioId);
     }, 500); // Initial delay before showing message
   };
 
@@ -51,57 +52,51 @@ export default function Game() {
     setMessage("");
   };
 
-  if (!currentQuestion) {
-    return (
-      <div className="max-w-4xl mx-auto p-6">
-        <div className="text-center">
-          <h2 className="text-2xl font-bold mb-4">Game Complete!</h2>
-          <div className="bg-gray-100 p-4 rounded-lg">
-            <h3 className="font-semibold mb-2">Final Stats:</h3>
-            <p>Sanity: {gameStats.sanity}</p>
-            <p>Money: {gameStats.money}</p>
-            <p>Performance: {gameStats.performance}</p>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
   return (
-    <div className="max-w-4xl mx-auto p-6 fixed inset-0 h-2/4 top-1/2">
-      {/* Question Display */}
-      <div className="mb-4">
-        <div className="mb-2 text-sm">
-          Question {currentQuestion.questionNumber}
-        </div>
-        <h2 className="text-2xl font-bold mb-2">{currentQuestion.title}</h2>
-        <p className="mb-6 leading-relaxed">{currentQuestion.description}</p>
-      </div>
-
+    <div
+      className={cn(
+        "max-w-4xl mx-auto p-6 fixed inset-0 h-2/4 top-1/2 flex flex-col",
+        showMessage && "justify-center"
+      )}
+    >
       {/* Options or Message */}
       {!showMessage ? (
-        <div className="flex justify-center gap-2 flex-wrap">
-          {currentQuestion.choices.map((choice) => (
-            <Button
-              key={choice.id}
-              onClick={() => handleOptionSelect(choice.id)}
-              disabled={selectedOption !== null}
-              variant={selectedOption === choice.id ? "default" : "outline"}
-              className="w-[45%] justify-center !p-4 h-auto whitespace-normal"
-            >
-              {choice.text}
-            </Button>
-          ))}
-        </div>
+        <>
+          {/* Question Display */}
+          <div>
+            <div className="mb-2 text-sm">
+              Question {currentQuestion.questionNumber}
+            </div>
+            <h2 className="text-2xl font-bold">{currentQuestion.title}</h2>
+            <p className="mb-6 leading-relaxed">
+              {currentQuestion.description}
+            </p>
+          </div>
+          <div className="flex justify-between gap-y-5 flex-wrap">
+            {currentQuestion.choices.map((choice) => (
+              <Button
+                key={choice.id}
+                onClick={() => handleOptionSelect(choice.id)}
+                disabled={selectedOption !== null}
+                variant={selectedOption === choice.id ? "default" : "outline"}
+                className="w-[48%] justify-center !p-4 h-auto whitespace-normal !m-0"
+              >
+                {choice.text}
+              </Button>
+            ))}
+          </div>
+        </>
       ) : (
         <div className="bg-blue-50 border-l-4 border-blue-400 p-4 rounded">
-          <p className="text-gray-700 leading-relaxed">{message}</p>
+          <TypingAnimation className="text-lg leading-relaxed" duration={50}>
+            {message}
+          </TypingAnimation>
           <div className="mt-3 flex justify-end">
             <Button
               onClick={handleNextQuestion}
-              className="w-[45%] justify-center !p-4 h-auto whitespace-normal"
+              className="justify-center !p-0 h-auto whitespace-normal !size-8"
             >
-              <ChevronRight />
+              <ChevronRight className="size-5" />
             </Button>
           </div>
         </div>
