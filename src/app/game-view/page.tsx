@@ -18,7 +18,16 @@ import { GameScenario } from "@/lib/types";
 import { NODE_HEIGHT } from "@/lib/constants";
 
 // Custom node component for questions
-const QuestionNode = ({ data }: { data: any }) => (
+const QuestionNode = ({
+  data,
+}: {
+  data: {
+    id: string;
+    title: string;
+    description: string;
+    questionNumber: number;
+  };
+}) => (
   <div
     className="bg-blue-100 border-2 border-blue-500 rounded-lg p-4 min-w-[300px] max-w-[400px] shadow-lg"
     style={{ height: `${NODE_HEIGHT}px` }}
@@ -36,7 +45,21 @@ const QuestionNode = ({ data }: { data: any }) => (
 );
 
 // Custom node component for options
-const OptionNode = ({ data }: { data: any }) => (
+const OptionNode = ({
+  data,
+}: {
+  data: {
+    id: string;
+    text: string;
+    consequences: {
+      sanity?: number;
+      performance?: number;
+      money?: number;
+      message: string;
+      nextScenarioId?: string;
+    };
+  };
+}) => (
   <div
     className="bg-green-100 border-2 border-green-500 rounded-lg p-3 min-w-[250px] max-w-[350px] shadow-lg"
     style={{ height: `${NODE_HEIGHT}px` }}
@@ -66,11 +89,11 @@ const OptionNode = ({ data }: { data: any }) => (
       )}
     </div>
     <div className="text-xs text-gray-700 mt-2 italic">
-      "
+      &quot;
       {data.consequences.message.length > 80
         ? `${data.consequences.message.substring(0, 80)}...`
         : data.consequences.message}
-      "
+      &quot;
     </div>
     {data.consequences.nextScenarioId && (
       <div className="text-xs text-green-600 mt-1">
@@ -147,8 +170,6 @@ export default function GameViewPage() {
           target: optionNodeId,
           type: "smoothstep",
           animated: true,
-          sourceHandle: `question-${scenario.id}`,
-          targetHandle: `option-${scenario.id}-${choice.id}`,
           style: {
             stroke: "#3b82f6",
             strokeWidth: 3,

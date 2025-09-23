@@ -42,7 +42,9 @@ export default function Game() {
     setTimeout(() => {
       setMessage(choice.consequences.message);
       setShowMessage(true);
-      setQuestionId(choice.consequences.nextScenarioId);
+      if (choice.consequences.nextScenarioId) {
+        setQuestionId(choice.consequences.nextScenarioId);
+      }
     }, 500); // Initial delay before showing message
   };
 
