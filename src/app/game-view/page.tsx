@@ -11,6 +11,8 @@ import {
   useNodesState,
   useEdgesState,
   MarkerType,
+  Handle,
+  Position,
 } from "@xyflow/react";
 import "@xyflow/react/dist/style.css";
 import { gameData } from "@/lib/gameData";
@@ -41,6 +43,18 @@ const QuestionNode = ({
         : data.description}
     </div>
     <div className="text-xs text-blue-600">ID: {data.id}</div>
+    <Handle
+      type="source"
+      id={`${data?.id}`}
+      position={Position.Bottom}
+      className="opacity-0 !pointer-events-none -translate-y-[50%] top-[50%]"
+    />
+    <Handle
+      type="target"
+      id={`${data?.id}`}
+      position={Position.Top}
+      className="opacity-0 !pointer-events-none -translate-y-[50%] top-[50%]"
+    />
   </div>
 );
 
@@ -100,6 +114,18 @@ const OptionNode = ({
         → Next: {data.consequences.nextScenarioId}
       </div>
     )}
+    <Handle
+      type="source"
+      id={`${data?.id}`}
+      position={Position.Bottom}
+      className="opacity-0 !pointer-events-none -translate-y-[50%] top-[50%]"
+    />
+    <Handle
+      type="target"
+      id={`${data?.id}`}
+      position={Position.Top}
+      className="opacity-0 !pointer-events-none -translate-y-[50%] top-[50%]"
+    />
   </div>
 );
 
@@ -115,7 +141,7 @@ export default function GameViewPage() {
     const edges: Edge[] = [];
 
     let yPosition = 0;
-    const questionSpacing = 500; // Vertical spacing between question levels
+    const questionSpacing = 700; // Vertical spacing between question levels
     const optionSpacing = 500; // Horizontal spacing between options
 
     // Create a map to track question positions for connecting to next questions
@@ -147,7 +173,7 @@ export default function GameViewPage() {
           questionX -
           ((scenario.choices.length - 1) * optionSpacing) / 2 +
           choiceIndex * optionSpacing;
-        const optionY = questionY + 200; // Options below questions
+        const optionY = questionY + 300; // Options below questions
 
         const optionNodeId = `option-${scenario.id}-${choice.id}`;
 
@@ -163,10 +189,12 @@ export default function GameViewPage() {
           },
         });
 
-        // Connect question to option
+        // Connect question to option (removed sourceHandle and targetHandle)
         edges.push({
           id: `edge-question-${scenario.id}-to-option-${choice.id}`,
           source: `question-${scenario.id}`,
+          sourceHandle: scenario.id,
+          targetHandle: choice.id,
           target: optionNodeId,
           type: "smoothstep",
           animated: true,
@@ -182,6 +210,78 @@ export default function GameViewPage() {
       });
 
       yPosition += questionSpacing;
+    });
+
+    // Second pass: Connect options to their next questions
+    gameData.forEach((scenario: GameScenario) => {
+      scenario.choices.forEach((choice) => {
+        const optionNodeId = `option-${scenario.id}-${choice.id}`;
+        const nextScenarioId = choice.consequences.nextScenarioId;
+
+        // Find if the next scenario exists in our data
+        const nextScenario = gameData.find((s) => s.id === nextScenarioId);
+        if (nextScenario) {
+          const nextQuestionNodeId = `question-${nextScenarioId}`;
+
+          // Connect option to next question
+          edges.push({
+            id: `edge-option-${choice.id}-to-question-${nextScenarioId}`,
+            source: optionNodeId,
+            target: nextQuestionNodeId,
+            type: "smoothstep",
+            animated: true,
+            style: {
+              stroke: "#10b981",
+              strokeWidth: 3,
+              strokeDasharray: "8,4",
+            },
+
+            markerEnd: {
+              type: MarkerType.ArrowClosed,
+              color: "#10b981",
+            },
+          });
+        } else {
+          // If no next question exists, create an end node
+          const endNodeId = `end-${scenario.id}-${choice.id}`;
+          const optionPosition = nodes.find(
+            (n) => n.id === optionNodeId
+          )?.position;
+
+          if (optionPosition) {
+            nodes.push({
+              id: endNodeId,
+              position: { x: optionPosition.x, y: optionPosition.y + 250 },
+              data: { label: "END BRANCH" },
+              style: {
+                background: "#fca5a5",
+                border: "2px solid #ef4444",
+                borderRadius: "8px",
+                padding: "10px",
+                fontSize: "12px",
+                fontWeight: "bold",
+                color: "#dc2626",
+                boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1)",
+              },
+            });
+
+            edges.push({
+              id: `edge-option-${choice.id}-to-end`,
+              source: optionNodeId,
+              target: endNodeId,
+              type: "smoothstep",
+              style: {
+                stroke: "#ef4444",
+                strokeWidth: 3,
+              },
+              markerEnd: {
+                type: MarkerType.ArrowClosed,
+                color: "#ef4444",
+              },
+            });
+          }
+        }
+      });
     });
 
     return { nodes, edges };
