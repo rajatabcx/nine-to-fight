@@ -30,3 +30,5 @@ export const quetionIds = {
   ENGINEERING_MANAGER_NIGHTMARE: "engineering_manager_nightmare",
   CEO_NIGHTMARE: "ceo_nightmare",
 };
+
+export const NODE_HEIGHT = 200;

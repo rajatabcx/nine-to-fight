@@ -55,7 +55,6 @@ export const gameData: GameScenario[] = [
           performance: 1,
           message:
             "You spend 8 hours fixing outdated instructions. Leadership appreciates your 'independence' and 'problem-solving skills'.",
-          nextScenarioId: quetionIds.SETUP_NIGHTMARE,
         },
       },
       {
@@ -65,7 +64,6 @@ export const gameData: GameScenario[] = [
           performance: -1,
           sanity: 2,
           message: `${teamNames.engineeringManager} responds 3 hours later: 'The docs should be self-explanatory. This is basic stuff.' You feel stupid for asking.`,
-          nextScenarioId: quetionIds.SETUP_NIGHTMARE,
         },
       },
       {
@@ -74,7 +72,6 @@ export const gameData: GameScenario[] = [
         consequences: {
           sanity: 1,
           message: `${teamNames.seniorEngineer} or ${teamNames.juniorEngineer} helps you quietly. 'Don't let them know I helped - they expect everyone to figure it out alone,' he whispers.`,
-          nextScenarioId: quetionIds.SETUP_NIGHTMARE,
         },
       },
       {
@@ -84,7 +81,6 @@ export const gameData: GameScenario[] = [
           performance: -2,
           sanity: -1,
           message: `${teamNames.productManager} replies: 'The documentation works fine for everyone else. Maybe focus on adapting rather than finding problems.'`,
-          nextScenarioId: quetionIds.SETUP_NIGHTMARE,
         },
       },
     ],

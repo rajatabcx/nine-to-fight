@@ -83,4 +83,6 @@ Resinging or join call kind of situation
 
 => In a standup, Founder 1, EM, and senior engineer, creates their bubble and start praiosing each toher what will you do
 
-=>
+=> Your founder says you give the vibe that you know about a liot of trechnologies which is bad (for sme reason), whats your response
+
+=> You express your frustration as nobody is listening to abything you say as you are junior, your founder rplies you have to take care of everything by yourself, instead o talking to people on high level

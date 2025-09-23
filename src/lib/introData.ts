@@ -31,7 +31,7 @@ export const introData: Intro[] = [
     designation: "CEO & CTO",
     entryFrom: "left",
     introText: [
-      `Welcome aboard! I'm ${teamNames.ceo}, I'm a Googler, I left Google but Google didn't leave me.`,
+      `Welcome aboard! I'm ${teamNames.ceo}, the CEO and CTO, I'm a Googler, I left Google but Google didn't leave me.`,
       "I believe in total freedom - while keeping a firm grip on every detail.",
       "Remember one thing, I know best, and opinions are just distractions.",
       "Expect perfection - no excuses, just results under my watchful eye.",
@@ -44,7 +44,7 @@ export const introData: Intro[] = [
     designation: "COO & CPO",
     entryFrom: "right",
     introText: [
-      `Hey hey! I'm ${teamNames.coo}, the laid-back co-founder.`,
+      `Hey hey! I'm ${teamNames.coo}, the laid-back COO and CPO.`,
       "I juggle genius ideas and big picture thinking - effortlessly, of course.",
       "I talk big visions, but why sweat the details when I've hired pros to handle my inbox and calls?",
       "Life's too short for stress; I just vibe and let the team sort it out.",
@@ -59,7 +59,7 @@ export const introData: Intro[] = [
     introText: [
       `G'day! I'm ${teamNames.engineeringManager}, your globe-trotting Engineering Manager.`,
       "Autonomy is key - that's why my backlog is longer than the list of countries I've visited.",
-      "My favourite game is blame, and my productivity depends entirely on wifi strength.",
+      "My favourite game is blame and... let me just find a booth, I am actually on a train now.",
       "I swoop in at crunch time to claim the glory; it's all about strategic timing!",
       "Join the adventure; we'll manage... somehow.",
     ],
@@ -95,7 +95,7 @@ export const introData: Intro[] = [
     designation: "Junior Software Engineer",
     entryFrom: "right",
     introText: [
-      `Yo! I'm ${teamNames.juniorEngineer}, I'm also here, letting you know..`,
+      `Yo! I'm ${teamNames.juniorEngineer}, the ultimate junior engineer.`,
       "I'm here to help whenever, even if I'm a tad slow - but hey, language nuances are my jam!",
       "Good vibes only; let's build stuff without the rush.",
       "You're gonna love the team spirit here.",
@@ -107,7 +107,8 @@ export const introData: Intro[] = [
     designation: "Technical Program Manager",
     entryFrom: "left",
     introText: [
-      `Sup! I'm ${teamNames.technicalProgramManager}, the chillest guy ever, turning 3-day tasks into epic 8-week sagas.`,
+      `Sup! I'm ${teamNames.technicalProgramManager}, not really sure about role yet, but the chillest guy ever`,
+      "I kind of just creates mess for everyone to fix, Turning 3-day tasks into epic 8-week sagas.",
       "Why hustle when ChatGPT handles milestones and tickets? It's innovative efficiency!",
       "Six weeks in and only half done? That's just building suspense.",
       "Relax - it'll all land eventually.",

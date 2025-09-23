@@ -21,7 +21,7 @@ export type GameScenario = {
       money?: number;
       performance?: number;
       message: string;
-      nextScenarioId: string;
+      nextScenarioId?: string;
     };
   }[];
 };
