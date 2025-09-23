@@ -18,8 +18,8 @@ export default function MusicPlayer() {
     if (!audio1 || !audio2) return;
 
     // Set low volume
-    audio1.volume = 0.3;
-    audio2.volume = 0.3;
+    audio1.volume = 0.1;
+    audio2.volume = 0.1;
 
     if (isAudioEnabled) {
       // Start with the first track

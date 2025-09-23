@@ -8,6 +8,14 @@ import { Play, RotateCcw } from "lucide-react";
 
 import { cookieNames, COOKIE_EXPIRY_DAYS } from "@/lib/constants";
 import { useGameStore } from "@/lib/gameStore";
+import { Press_Start_2P } from "next/font/google";
+import { cn } from "@/lib/utils";
+
+const pressStart2P = Press_Start_2P({
+  variable: "--font-press-start-2p",
+  weight: ["400"],
+  subsets: ["latin"],
+});
 
 export default function StartScreen() {
   const { toggleGameStarted, setPlayerId } = useGameStore();
@@ -57,7 +65,12 @@ export default function StartScreen() {
     <div className="w-full bg-transparent fixed top-4/6 flex flex-col items-center justify-center gap-4 text-center">
       {/* Game Title */}
       <div className="space-y-4 text-center">
-        <h1 className="text-2xl md:text-4xl lg:text-6xl font-bold text-white pixel-text drop-shadow-lg">
+        <h1
+          className={cn(
+            "text-2xl md:text-4xl lg:text-6xl font-bold text-white pixel-text drop-shadow-lg",
+            pressStart2P.className
+          )}
+        >
           Nine To Fight
         </h1>
       </div>
@@ -66,12 +79,20 @@ export default function StartScreen() {
       <div className="space-y-4">
         {hasExistingPlayer ? (
           <div className="space-y-3">
-            <div className="text-sm text-gray-300 pixel-text">
+            <div
+              className={cn(
+                "text-sm text-gray-300 pixel-text",
+                pressStart2P.className
+              )}
+            >
               Welcome back!
             </div>
             <Button
               onClick={handleResumeGame}
-              className="pixel-button text-lg px-8 py-6 bg-green-600 hover:bg-green-700"
+              className={cn(
+                "pixel-button text-lg px-8 py-6 bg-green-600 hover:bg-green-700",
+                pressStart2P.className
+              )}
               size="lg"
             >
               <RotateCcw className="mr-2 size-5" />
@@ -80,7 +101,10 @@ export default function StartScreen() {
           </div>
         ) : (
           <Button
-            className="pixel-button text-lg px-8 py-6"
+            className={cn(
+              "pixel-button text-lg px-8 py-6",
+              pressStart2P.className
+            )}
             size="lg"
             onClick={onStartGame}
           >

@@ -37,7 +37,7 @@ export default function Intro() {
 
   const handlePrevious = () => {
     if (currentIntroText === 0) {
-      setCurrentIntroText(introData[currentSlide].introText.length - 1);
+      setCurrentIntroText(0);
       setCurrentSlide((prev) => prev - 1);
     } else {
       setCurrentIntroText((prev) => prev - 1);
@@ -55,7 +55,7 @@ export default function Intro() {
       {/* Skip button */}
       <button
         onClick={handleSkip}
-        className="absolute top-4 right-4 z-20 px-4 py-2 bg-black/60 text-white text-sm rounded hover:bg-black/80 transition-colors"
+        className="absolute top-4 right-4 z-20 px-4 py-2 bg-black/60 text-white text-base rounded hover:bg-black/80 transition-colors"
       >
         Skip Intro
       </button>
@@ -90,21 +90,23 @@ export default function Intro() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.5 }}
             className={cn(
-              "speech-bubble absolute max-w-2xl w-full p-4 -top-1/5 h-44 flex flex-col justify-between",
+              "speech-bubble absolute max-w-2xl w-full p-4 -top-1/5 h-36 flex flex-col justify-between",
               currentCharacter.entryFrom === "left"
                 ? "left left-4/6"
                 : "right right-4/6"
             )}
           >
-            <TypingAnimation className="text-sm">
+            <TypingAnimation className="text-base" duration={50}>
               {currentCharacter.introText[currentIntroText]}
             </TypingAnimation>
             <div className={cn("flex justify-end items-center gap-2")}>
               <Button
                 onClick={handlePrevious}
                 variant="outline"
-                size="lg"
-                className={cn("!w-10 !px-4", currentSlide === 0 && "hidden")}
+                className={cn(
+                  "!px-2 !py-0 !h-8",
+                  currentSlide === 0 && currentIntroText === 0 && "hidden"
+                )}
               >
                 <ChevronLeft className="w-5 h-5" />
               </Button>
@@ -112,7 +114,7 @@ export default function Intro() {
                 {currentIntroText + 1} /{" "}
                 {introData[currentSlide].introText.length}
               </div>
-              <Button onClick={handleNext} size="icon" className="!w-10 !px-4">
+              <Button onClick={handleNext} className="!px-2 !py-0 !h-8">
                 <ChevronRight className="w-5 h-5 ml-1" />
               </Button>
             </div>

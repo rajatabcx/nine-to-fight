@@ -10,15 +10,15 @@ export default function GameRule() {
       <div className="speech-bubble max-w-2xl w-full p-4 flex flex-col justify-between space-y-4">
         <div className="space-y-2">
           <h1 className="text-2xl font-bold">Your Mission</h1>
-          <p className="text-xs">
+          <p className="text-sm">
             Survive at a startup. Make decisions that shape your corporate
             nightmare. Will you escape with dignity or become the toxic boss you
             hate?
           </p>
         </div>
         <div className="space-y-2">
-          <h2 className="text-lg font-bold">Your Stats</h2>
-          <ul className="text-xs">
+          <h2 className="text-2xl font-bold">Your Stats</h2>
+          <ul className="text-sm">
             <li>
               <strong className="text-red-600">Sanity:</strong> Mental health
               (starts at 100)
@@ -32,14 +32,14 @@ export default function GameRule() {
               rating (starts at 0)
             </li>
           </ul>
-          <p className="text-xs">
+          <p className="text-sm">
             Every choice affects these stats. High performance often destroys
             sanity. Welcome to corporate life.
           </p>
         </div>
         <div className="space-y-2">
-          <h2 className="text-lg font-bold">The Endgame</h2>
-          <p className="text-xs">
+          <h2 className="text-2xl font-bold">The Endgame</h2>
+          <p className="text-sm">
             Your final stats determine one of many endings. There&apos;s no
             &quot;winning&quot; - only different ways to survive or break. Each
             ending reflects real workplace horror.

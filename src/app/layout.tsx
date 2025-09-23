@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { Press_Start_2P } from "next/font/google";
+import { Pixelify_Sans } from "next/font/google";
 import "./globals.css";
 
-const pressStart2P = Press_Start_2P({
+const pixelifySans = Pixelify_Sans({
   variable: "--font-press-start-2p",
   weight: ["400"],
   subsets: ["latin"],
@@ -20,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${pressStart2P.className} antialiased bg-[#5787cb]`}>
+      <body className={`${pixelifySans.className} antialiased bg-[#5787cb]`}>
         {children}
       </body>
     </html>

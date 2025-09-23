@@ -6,14 +6,15 @@ export const cookieNames = {
 export const COOKIE_EXPIRY_DAYS = 30;
 
 export const teamNames = {
-  protagonist: "Rajat",
-  engineeringManager: "Lachlan Wicks",
-  designer: "Joshua Shima",
-  seniorEngineer: "Ashby Haloid",
-  juniorEngineer: "Helixes Oak",
-  technicalProgramManager: "Rajan Phumkabe",
-  productManager: "Hiram Rotty",
-  softwareEngineer: "Abhiuday Rai",
-  ceo: "Alisha Washrag",
-  coo: "Akihito Larson",
+  protagonist: "Rajat Mondal",
+  engineeringManager: "Liam Cadwell",
+  designer: "Meera Jha",
+  seniorEngineer: "Yuvan Bhattad",
+  juniorEngineer: "Eliot Shayko",
+  technicalProgramManager: "Arun Jindal",
+  productManager: "Tarun Ray",
+  softwareEngineer: "Soham Uplenchwar",
+  ceo: "Anish Arora",
+  coo: "Sunita Khanna",
+  hr: "Beverly Jones",
 };

@@ -1,22 +1,5 @@
 import { teamNames } from "./constants";
-
-interface GameScenario {
-  id: string;
-  title: string;
-  description: string;
-  questionNumber: number;
-  choices: {
-    id: string;
-    text: string;
-    consequences: {
-      sanity?: number;
-      money?: number;
-      performance?: number;
-      message: string;
-      nextScenarioId: string;
-    };
-  }[];
-}
+import { GameScenario } from "./types";
 
 export const gameData: GameScenario[] = [
   {
