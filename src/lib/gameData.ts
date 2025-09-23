@@ -34,8 +34,7 @@ export const gameData: GameScenario[] = [
         consequences: {
           performance: -1,
           sanity: 1,
-          message:
-            "People think you're either arrogant or antisocial. Ashish notices your silence and makes a mental note.",
+          message: `People think you're either arrogant or antisocial. ${teamNames.ceo} notices your silence and makes a mental note.`,
           nextScenarioId: quetionIds.SETUP_NIGHTMARE,
         },
       },
@@ -84,8 +83,7 @@ export const gameData: GameScenario[] = [
         consequences: {
           performance: -2,
           sanity: -1,
-          message:
-            "Sonali replies: 'The documentation works fine for everyone else. Maybe focus on adapting rather than finding problems.'",
+          message: `${teamNames.productManager} replies: 'The documentation works fine for everyone else. Maybe focus on adapting rather than finding problems.'`,
           nextScenarioId: quetionIds.SETUP_NIGHTMARE,
         },
       },
